@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import org.launchcode.javawebdevtechjobsmvc.models.JobData;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -42,7 +43,6 @@ public class ListController {
         model.addAttribute("locations", JobData.getAllLocations());
         model.addAttribute("positions", JobData.getAllPositionTypes());
         model.addAttribute("skills", JobData.getAllCoreCompetency());
-
         return "list";
     }
 
@@ -57,6 +57,7 @@ public class ListController {
             model.addAttribute("title", "Jobs with " + columnChoices.get(column) + ": " + value);
         }
         model.addAttribute("jobs", jobs);
+        System.out.println(jobs.toString());
 
         return "list-jobs";
     }
